@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAFÉ's ROADMAP 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        :root {
+            --blue-400: #60a5fa;
+            --blue-500: #3b82f6;
+            --blue-700: #1d4ed8;
+            --purple-400: #c084fc;
+            --purple-500: #a855f7;
+            --purple-700: #7c3aed;
+            --pink-400: #f472b6;
+            --pink-500: #ec4899;
+            --rose-600: #e11d48;
+            --indigo-500: #6366f1;
+            --violet-600: #7c3aed;
+            --green-400: #4ade80;
+            --green-500: #22c55e;
+            --yellow-400: #facc15;
+            --orange-400: #fb923c;
+            --orange-500: #f97316;
+            --red-600: #dc2626;
+            --cyan-600: #0891b2;
+            --emerald-600: #059669;
+            --slate-400: #94a3b8;
+            --slate-500: #64748b;
+            --slate-600: #475569;
+            --slate-700: #334155;
+            --slate-800: #1e293b;
+            --slate-900: #0f172a;
+            --slate-950: #020617;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--slate-950), var(--slate-900), var(--slate-950));
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .animate-fade-in {
+            animation: fade-in 0.3s ease-out;
+        }
+        
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-slide-down {
+            animation: slide-down 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @keyframes slide-down {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-bounce-in {
+            animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        @keyframes bounce-in {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .glow-blue { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+        .glow-purple { box-shadow: 0 0 20px rgba(168, 85, 247, 0.5); }
+        .glow-pink { box-shadow: 0 0 20px rgba(236, 72, 153, 0.5); }
+        .glow-indigo { box-shadow: 0 0 20px rgba(99, 102, 241, 0.5); }
+        .glow-green { box-shadow: 0 0 20px rgba(34, 197, 94, 0.5); }
+        
+        .transition-all { transition: all 0.3s ease; }
+        
+        .backdrop-blur-xl { -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); }
+        
+        .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+        .shadow-3xl { box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.3); }
+        .shadow-inner { box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05); }
+        
+        .bg-gradient-text-blue { background: linear-gradient(to right, var(--blue-400), var(--purple-400), var(--pink-400)); }
+        .bg-gradient-text-green { background: linear-gradient(to right, var(--green-400), var(--emerald-600)); }
+        .bg-gradient-text-orange { background: linear-gradient(to right, var(--orange-400), var(--red-600)); }
+        .bg-gradient-text-blue-cyan { background: linear-gradient(to right, var(--blue-400), var(--cyan-600)); }
+        .bg-gradient-text-purple-pink { background: linear-gradient(to right, var(--purple-400), var(--pink-500)); }
+        
+        .text-gradient { -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        
+        .hover-scale:hover { transform: scale(1.05); }
+        
+        .branch-line {
+            position: absolute;
+            width: 2px;
+            background: linear-gradient(to bottom, rgba(59, 130, 246, 0.3), rgba(59, 130, 246, 0.8));
+            z-index: 0;
+        }
+        
+        .achievement-badge {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 14px;
+            margin-right: 8px;
+            animation: achievement-pop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        @keyframes achievement-pop {
+            0% { transform: scale(0); }
+            70% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        .streak-fire {
+            animation: streak-fire 1.5s ease-in-out infinite alternate;
+        }
+        
+        @keyframes streak-fire {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        
+        .floating-particles {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-20px) translateX(10px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background Orbs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-20 left-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-20 right-20 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s"></div>
+        <div class="absolute top-1/2 left-1/3 w-80 h-80 bg-pink-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s"></div>
+        <div class="absolute bottom-1/3 right-1/4 w-72 h-72 bg-indigo-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1.5s"></div>
+        
+        <!-- Floating Particles -->
+        <div id="particles-container"></div>
+    </div>
+
+    <!-- Achievements Toast -->
+    <div id="achievement-toast" class="fixed top-4 right-4 z-50 bg-slate-800/90 backdrop-blur-xl border border-slate-700 rounded-xl p-4 shadow-2xl transform translate-x-full transition-transform duration-500">
+        <div class="flex items-center gap-3">
+            <div id="achievement-icon" class="achievement-badge bg-gradient-to-br from-yellow-400 to-orange-500">
+                <i class="fas fa-trophy text-white"></i>
+            </div>
+            <div>
+                <h4 id="achievement-title" class="font-bold text-white">Achievement Unlocked!</h4>
+                <p id="achievement-desc" class="text-sm text-slate-300">Complete your first task</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative z-10">
+        <!-- Epic Header -->
+        <div class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-xl border-b border-slate-800 shadow-2xl">
+            <div class="max-w-7xl mx-auto px-4 py-4">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div class="text-center md:text-left">
+                        <div class="flex items-center gap-3 justify-center md:justify-start mb-2">
+                            <i class="fas fa-fire text-orange-500 text-2xl streak-fire"></i>
+                            <h1 class="text-3xl md:text-4xl font-black bg-gradient-text-blue text-gradient">
+                                CAFÉ's ROADMAP 2026
+                            </h1>
+                            <i class="fas fa-trophy text-yellow-500 text-2xl animate-pulse"></i>
+                        </div>
+                        <p class="text-slate-400 text-sm">Full-Stack × Web3 × UI/UX × PM Mastery Journey</p>
+                    </div>
+
+                    <!-- Countdown Timer - Compact -->
+                    <div class="flex gap-2" id="countdown-timer">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Streak Counter -->
+                <div class="flex items-center justify-center md:justify-start gap-2 mt-2">
+                    <div class="flex items-center gap-1 bg-slate-800/70 rounded-full px-3 py-1">
+                        <i class="fas fa-fire text-orange-400"></i>
+                        <span class="text-sm font-medium" id="streak-counter">0</span>
+                        <span class="text-xs text-slate-400">day streak</span>
+                    </div>
+                    
+                    <!-- Achievements Badges -->
+                    <div id="achievements-header" class="flex gap-1">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 py-8">
+            <!-- Overall Progress - Sleeker -->
+            <div class="mb-8 bg-slate-800/50 backdrop-blur-xl border border-slate-700 rounded-2xl p-6 shadow-2xl">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-bullseye text-blue-400 text-xl"></i>
+                        <div>
+                            <h3 class="text-2xl font-bold">Overall Progress</h3>
+                            <p class="text-sm text-slate-400" id="overall-stats">0 of 0 tasks completed</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-4xl font-black bg-gradient-text-blue text-gradient" id="overall-progress">
+                            0%
+                        </div>
+                        <div class="text-xs text-slate-500" id="remaining-tasks">0 remaining</div>
+                    </div>
+                </div>
+                <div class="w-full  bg-slate-900 rounded-full h-4 overflow-hidden shadow-inner">
+                    <div id="overall-progress-bar" class="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 transition-all duration-1000 ease-out relative" style="width: 0%">
+                        <div class="absolute inset-0 bg-white/20 animate-pulse"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Branches - Card Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8" id="branches-container">
+                <!-- Will be populated by JavaScript -->
+            </div>
+
+            <!-- Stats Footer -->
+            <div class="bg-slate-800/50 backdrop-blur-xl border border-slate-700 rounded-2xl p-6 shadow-2xl">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center" id="stats-container">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="text-center mt-8 text-slate-500 text-sm">
+                <p>Made with ☕ by CAFÉ | Building in public 🚀</p>
+                <p class="mt-1">Progress auto-saved to localStorage</p>
+                <button id="reset-progress" class="mt-2 px-4 py-2 bg-red-600/20 hover:bg-red-600/30 text-red-400 rounded-lg transition-colors">
+                    Reset Progress
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Roadmap Data
+        const roadmapData = {
+            fullstack: {
+                title: 'Full-Stack Development',
+                icon: 'fas fa-code',
+                color: 'from-blue-500 to-blue-700',
+                borderColor: 'border-blue-500',
+                glowColor: 'glow-blue',
+                nodes: [
+                    {
+                        id: 'fs1',
+                        title: 'Front-End Foundation',
+                        phase: 'Módulo 1.1',
+                        status: 'in-progress',
+                        tasks: [
+                            { id: 1, text: 'HTML5 & CSS3 Avançado (FreeCodeCamp, MDN Docs, Curso em Vídeo, W3Schools)', completed: false },
+                            { id: 2, text: 'JavaScript ES6+ & DOM (JavaScript.info, Eloquent JavaScript, JavaScript30, Scrimba)', completed: false },
+                            { id: 3, text: 'Tailwind CSS Mastery (Tailwind Docs, Tailwind UI, Scrimba Tailwind, Tailwind Labs YouTube)', completed: false },
+                            { id: 4, text: 'Git & GitHub Workflow (GitHub Learning Lab, Git Explorer, Atlassian Git Tutorial, Pro Git Book)', completed: false },
+                            { id: 5, text: 'Projeto: Portfolio Responsivo', completed: false },
+                        ]
+                    },
+                    {
+                        id: 'fs2',
+                        title: 'JavaScript Frameworks',
+                        phase: 'Módulo 1.2',
+                        status: 'todo',
+                        tasks: [
+                            { id: 1, text: 'React.js & Hooks (React Docs, Scrimba React, React Tutorial, Epic React)', completed: false },
+                            { id: 2, text: 'TypeScript Fundamentals (TypeScript Handbook, Total TypeScript, Execute Program, TypeScript Deep Dive)', completed: false },
+                            { id: 3, text: 'State Management (Context/Zustand) (React Context Docs, Zustand Docs, State Management Guide)', completed: false },
+                            { id: 4, text: 'React Router & Navigation (React Router Docs, UI.dev React Router, React Router Tutorial)', completed: false },
+                            { id: 5, text: 'Projeto: Dashboard React', completed: false },
+                        ]
+                    },
+                    {
+                        id: 'fs3',
+                        title: 'Back-End Development',
+                        phase: 'Módulo 1.3',
+                        status: 'todo',
+                        tasks: [
+                            { id: 1, text: 'Node.js & Express.js (Node.js Docs, Express Docs, The Odin Project Node, NodeSchool)', completed: false },
+                            { id: 2, text: 'Python & Frameworks (Python.org, Real Python, Automate the Boring Stuff, Corey Schafer YouTube)', completed: false },
+                            { id: 3, text: 'PHP Moderno (PHP.net, Laracasts PHP, PHP The Right Way, Traversy Media PHP)', completed: false },
+                            { id: 4, text: 'REST APIs & JWT Auth (REST API Tutorial, JWT.io, Postman Learning Center, API Design Patterns)', completed: false },
+                            { id: 5, text: 'Projeto: API REST Completa', completed: false },
+                        ]
+                    },
+                    {
+                        id: 'fs4',
+                        title: 'Databases',
+                        phase: 'Módulo 1.4',
+                        status: 'todo',
+                        tasks: [
+                            { id: 1, text: 'MongoDB & Mongoose (MongoDB University, MongoDB Docs, Traversy Media MongoDB, Web Dev Simplified)', completed: false },
+                            { id: 2, text: 'PostgreSQL (PostgreSQL Tutorial, pgExercises, Supabase Docs, PostgreSQL Official)', completed: false },
+                            { id: 3, text: 'MySQL (MySQL Tutorial, W3Schools SQL, SQLBolt, MySQL for Developers)', completed: false },
+                            { id: 4, text: 'Firebase (Firestore, Auth, Hosting) (Firebase Docs, Fireship Firebase, Firebase YouTube Channel, Firebase Codelab)', completed: false },
+                            { id: 5, text: 'Projeto: App com Múltiplos Bancos', completed: false },
+                        ]
+                    },
+                    {
+                        id: 'fs5',
+                        title: 'DevOps & Tools',
+                        phase: 'Módulo 1.5',
+                        status: 'todo',
+                        tasks: [
+                            { id: 1, text: 'Docker & Containers (Docker Docs, Docker for Beginners, Play with Docker, TechWorld with Nana)', completed: false },
+                            { id: 2, text: 'CI/CD (GitHub Actions) (GitHub Actions Docs, CI/CD Tutorial, GitHub Skills, DevOps Directive)', completed: false },
+                            { id: 3, text: 'Deploy (Vercel, Railway, Render) (Vercel Docs, Railway Docs, Render Docs, Deploy Guides)', completed: false },
+                            { id: 4, text: 'Environment Config & Security (12 Factor App, dotenv Docs, OWASP Security, Security Checklist)', completed: false },
+                            { id: 5, text: 'Projeto: Pipeline CI/CD Completo', completed: false },
+                        ]
+                    }
+                ]
+            },
+            uiux: {
+                title: 'UI/UX Design',
+                icon: 'fas fa-palette',
+                color: 'from-purple-500 to-purple-700',
+                borderColor: 'border-purple-500',
+                glowColor: 'glow-purple',
+                nodes: [
+                    {
+                        id: 'ux1',
+                        title: 'Design Fundamentals',
+                        phase: 'Módulo 2.1',
+                        status: 'todo',
+                        tasks: [
+                            { id: 1, text: 'Teoria das Cores & Psicologia (Adobe Color, Coolors.co, Color Hunt, Refactoring UI)', completed: false },
+                            { id: 2, text: 'Tipografia & Hierarquia (Google Fonts, Practical Typography, Type Scale, Typewolf)', completed: false },
+                            { id: 3, text: 'Grid Systems & Spacing (Grid by Example, Layout Land YouTube, 8pt Grid Guide)', completed: false },
+                            { id: 4, text: 'Design Principles (Gestalt, etc) (Laws of UX, Principles.design, Design Better, Don\'t Make Me Think)', completed: false },
+                            { id: 5, text: 'Projeto: Design System Básico', completed: false },
+                        ]
+                    },
+                    {
+                        id: 'ux2',
+                        title: 'Figma Mastery',
+                        phase: 'Módulo 2.2',
+                        status: 'todo',
+                        tasks: [
+                            { id: 1, text: 'Figma Interface & Tools (Figma Academy, Figma YouTube Channel, Figma Community, Figma Config)', completed: false },
+                            { id: 2, text: 'Components & Variants (Figma Components Guide, Design Systems Tutorial, Component Libraries)', completed: false },
+                            { id: 3, text: 'Auto-Layout & Constraints (Figma Auto-Layout Docs, Flux YouTube, Figma Tips)', completed: false },
+                            { id: 4, text: 'Prototyping & Interactions (Figma Prototyping Guide, Smart Animate Tutorial, Interactive Components)', completed: false },
+                            { id: 5, text: 'Projeto: App Mobile Prototype', completed: false },
+                        ]
+                    },
+                    {
+                        id: 'ux3',
+                        title: 'UX Research',
+                        phase: 'Módulo 2.3',
+                        status: 'todo',
+                        tasks: [
+                            { id: 1, text: 'User Personas & Empathy Maps (NNGroup, UX Mastery, Interaction Design Foundation, Coursera Google UX)', completed: false },
+                            { id: 2, text: 'User Journey Mapping (Miro Templates, UXPressia, Smaply, Customer Journey Mapping)', completed: false },
+                            { id: 3, text: 'Wireframing (Low & High Fi) (Balsamiq, Whimsical, Figma Wireframe Kit, UX Tools)', completed: false },
+                            { id: 4, text: 'Usability Testing (Maze, UserTesting.com, Hotjar, Lookback.io)', completed: false },
+                            { id: 5, text: 'Projeto: Pesquisa de Usuário Completa', completed: false },
+                        ]
+                    },
+                    {
+                        id: 'ux4',
+                        title: 'UI Polish & Accessibility',
+                        phase: 'Módulo 2.4',
+                        status: 'todo',
+                        tasks: [
+                            { id: 1, text: 'Micro-interactions & Animation (LottieFiles, Principle, Framer Motion Docs, UI Movement)', completed: false },
+                            { id: 2, text: 'Accessibility (WCAG 2.1) (WebAIM, A11y Project, Deque University, Accessibility Guidelines)', completed: false },
+                            { id: 3, text: 'Responsive Design (This Is Responsive, Mobile First Design, Responsive Patterns)', completed: false },
+                            { id: 4, text: 'Dark Mode & Theming (Dark Mode Guide, Material Design Dark Theme, Tailwind Dark Mode)', completed: false },
+                            { id: 5, text: 'Projeto: App Acessível e Responsivo', completed: false },
+                        ]
+                    },
+                    {
+                        id: 'ux5',
+                        title: 'Design Systems & Handoff',
+                        phase: 'Módulo 2.5',
+                        status: 'todo',
+                        tasks: [
+                            { id: 1, text: 'Building Design Systems (Design Systems Repo, Adele (DS Library), Atomic Design, Style Dictionary)', completed: false },
+                            { id: 2, text: 'Design Tokens (Design Tokens W3C, Figma Tokens Plugin, Style Dictionary Docs)', completed: false },
+                            { id: 3, text: 'Component Documentation (Storybook, Docusaurus, ZeroHeight, Notion for Docs)', completed: false },
+                            { id: 4, text: 'Designer-Developer Handoff (Zeplin, Figma Inspect Mode, Anima, Handoff Best Practices)', completed: false },
+                            { id: 5, text: 'Projeto: Design System Completo', completed: false },
+                        ]
+                    }
+                ]
+            },
+            pm: {
+                title: 'Project Management',
+                icon: 'fas fa-chart-line',
+                color: 'from-pink-500 to-rose-600',
+                borderColor: 'border-pink-500',
+                glowColor: 'glow-pink',
+                nodes: [
+                    {
+                        id: 'pm1',
+                        title: 'Agile Methodologies',
+                        phase: 'Módulo 3.1',
+                        status: 'todo',
+                        tasks: [
+                            { id: 1, text: 'Scrum Framework (Scrum.org, Scrum Guide PDF, Atlassian Agile Coach, Mountain Goat Software)', completed: false },
+                            { id: 2, text: 'Kanban Method (Kanban University, Trello Guide, Kanbanize, Personal Kanban)', completed: false },
+                            { id: 3, text: 'Agile Ceremonies (Atlassian Ceremonies Guide, Scrum Ceremonies, Agile Alliance)', completed: false },
+                            { id: 4, text: 'User Stories & Backlog (Mountain Goat User Stories, Story Mapping, Product Backlog Management)', completed: false },
+                            { id: 5, text: 'Cert: Scrum Fundamentals Certified', completed: false },
+                        ]
+                    },
+                    {
+                        id: 'pm2',
+                        title: 'PM Tools - Collaboration',
+                        phase: 'Módulo 3.2',
+                        status: 'todo',
+                        tasks: [
+                            { id: 1, text: 'GitHub Projects & Issues (GitHub Projects Docs, GitHub Issues Guide, GitHub Learning Lab, Projects Beta)', completed: false },
+                            { id: 2, text: 'Notion for PM (Notion Templates Gallery, Notion Academy, Red Gregory YouTube, Thomas Frank)', completed: false },
+                            { id: 3, text: 'Google Workspace (Docs, Sheets, Drive) (Google Workspace Learning Center, Google Sheets Tutorial, Apps Script)', completed: false },
+                            { id: 4, text: 'Microsoft 365 (Teams, Planner, OneDrive) (Microsoft Learn, Microsoft 365 Training, Teams Essentials)', completed: false },
+                            { id: 5, text: 'Projeto: Setup de Projeto Completo', completed: false },
+                        ]
+                    },
+                    {
+                        id: 'pm3',
+                        title: 'PM Tools - Task Management',
+                        phase: 'Módulo 3.3',
+                        status: 'todo',
+                        tasks: [
+                            { id: 1, text: 'Trello Advanced (Trello Inspiration, Trello Power-Ups, Butler Automation, Trello Blog)', completed: false },
+                            { id: 2, text: 'Asana Workflows (Asana Academy, Asana Guide, Asana Templates)', completed: false },
+                            { id: 3, text: 'ClickUp Complete (ClickUp University, ClickUp Templates, ClickUp YouTube)', completed: false },
+                            { id: 4, text: 'Jira Fundamentals (Atlassian University, Jira Tutorial, Agile with Jira)', completed: false },
+                            { id: 5, text: 'Projeto: Workflow Ágil Completo', completed: false },
+                        ]
+                    },
+                    {
+                        id: 'pm4',
+                        title: 'Communication & Leadership',
+                        phase: 'Módulo 3.4',
+                        status: 'todo',
+                        tasks: [
+                            { id: 1, text: 'Stakeholder Management (PMI Resources, Stakeholder Analysis Guide, Communication Plan Templates)', completed: false },
+                            { id: 2, text: 'Conflict Resolution (Harvard Negotiation, Coursera Leadership, MindTools Conflict)', completed: false },
+                            { id: 3, text: 'Presentation Skills (Presentation Zen, Slide Design Tips, TED Talk Secrets)', completed: false },
+                            { id: 4, text: 'Technical Writing (Google Technical Writing, Write The Docs, Grammarly Blog)', completed: false },
+                            { id: 5, text: 'Projeto: Plano de Comunicação', completed: false },
+                        ]
+                    },
+                    {
+                        id: 'pm5',
+                        title: 'Metrics & Strategy',
+                        phase: 'Módulo 3.5',
+                        status: 'todo',
+                        tasks: [
+                            { id: 1, text: 'OKRs Framework (What Matters (John Doerr), OKR Examples, Perdoo Guide, Google OKRs)', completed: false },
+                            { id: 2, text: 'KPIs & Analytics (KPI Library, Metrics that Matter, Amplitude Blog)', completed: false },
+                            { id: 3, text: 'Google Analytics 4 (Google Analytics Academy, GA4 Tutorial, Analytics Mania, Measure School)', completed: false },
+                            { id: 4, text: 'A/B Testing & Experiments (Optimizely Guide, A/B Testing Mastery, GrowthHackers, VWO Blog)', completed: false },
+                            { id: 5, text: 'Projeto: Dashboard de Métricas', completed: false },
+                        ]
+                    }
+                ]
+            },
+            web3: {
+                title: 'Web3 & Ethical Hacking',
+                icon: 'fas fa-bolt',
+                color: 'from-indigo-500 to-violet-600',
+                borderColor: 'border-indigo-500',
+                glowColor: 'glow-indigo',
+                nodes: [
+                    {
+                        id: 'w3-1',
+                        title: 'Linux & Networking',
+                        phase: 'Módulo 4.1',
+                        status: 'todo',
+                        tasks: [
+                            { id: 1, text: 'Linux Fundamentals (Kali/Ubuntu) (Linux Journey, OverTheWire, Linux Command Line, Ubuntu Tutorial)', completed: false },
+                            { id: 2, text: 'Bash Scripting (Bash Academy, Bash Scripting Tutorial, Shell Scripting, Ryan\'s Tutorials)', completed: false },
+                            { id: 3, text: 'Networking Basics (TCP/IP, DNS) (NetworkChuck, Professor Messer Network+, Practical Networking, Cisco NetAcad)', completed: false },
+                            { id: 4, text: 'Wireshark & Packet Analysis (Wireshark University, PacketLife, Chris Greer YouTube, Wireshark Docs)', completed: false },
+                            { id: 5, text: 'Projeto: Setup de Lab de Redes', completed: false },
+                        ]
+                    },
+                    {
+                        id: 'w3-2',
+                        title: 'Anonymity & Privacy',
+                        phase: 'Módulo 4.2',
+                        status: 'todo',
+                        tasks: [
+                            { id: 1, text: 'Tor Network & Onion Routing (Tor Project Docs, Tor Browser Guide, Whonix Documentation, Privacy Guides)', completed: false },
+                            { id: 2, text: 'VPN & Proxies (IVPN Guides, ProtonVPN Docs, Privacy Tools, OpenVPN Setup)', completed: false },
+                            { id: 3, text: 'Encrypted Communication (Signal Guide, PGP/GPG Tutorial, Encryption Best Practices, ProtonMail)', completed: false },
+                            { id: 4, text: 'OPSEC (Operational Security) (OPSEC Guide, Digital Privacy Guide, Surveillance Self-Defense (EFF))', completed: false },
+                            { id: 5, text: 'Projeto: Setup de Segurança Pessoal', completed: false },
+                        ]
+                    },
+                    {
+                        id: 'w3-3',
+                        title: 'Ethical Hacking Basics',
+                        phase: 'Módulo 4.3',
+                        status: 'todo',
+                        tasks: [
+                            { id: 1, text: 'Penetration Testing Fundamentals (TryHackMe, HackTheBox, PentesterLab, Cybrary Pentesting)', completed: false },
+                            { id: 2, text: 'OWASP Top 10 (OWASP Guide, PortSwigger Web Security Academy, OWASP Juice Shop)', completed: false },
+                            { id: 3, text: 'SQL Injection & XSS (HackThisSite, DVWA, WebGoat, PentesterLab Web)', completed: false },
+                            { id: 4, text: 'Metasploit Framework (Metasploit Unleashed, Offensive Security Metasploit, Rapid7 Docs)', completed: false },
+                            { id: 5, text: 'Projeto: CTF Básico', completed: false },
+                        ]
+                    },
+                    {
+                        id: 'w3-4',
+                        title: 'Blockchain & Web3',
+                        phase: 'Módulo 4.4',
+                        status: 'todo',
+                        tasks: [
+                            { id: 1, text: 'Blockchain Fundamentals (Blockchain Demo, Ethereum.org, Whiteboard Crypto YouTube, Bitcoin Whitepaper)', completed: false },
+                            { id: 2, text: 'Cryptocurrency & Wallets (MetaMask Guide, Hardware Wallets Guide, CoinMarketCap Learn, Ledger Academy)', completed: false },
+                            { id: 3, text: 'Smart Contracts (Solidity Intro) (CryptoZombies, Solidity by Example, Remix IDE, OpenZeppelin Learn)', completed: false },
+                            { id: 4, text: 'Web3.js Basics (Web3.js Docs, Ethers.js Docs, Alchemy University, Moralis Academy)', completed: false },
+                            { id: 5, text: 'Projeto: Token ERC-20', completed: false },
+                        ]
+                    },
+                    {
+                        id: 'w3-5',
+                        title: 'Advanced Security',
+                        phase: 'Módulo 4.5',
+                        status: 'todo',
+                        tasks: [
+                            { id: 1, text: 'Cryptography Basics (RSA, AES) (Crypto101, Khan Academy Cryptography, Applied Cryptography, Cryptopals)', completed: false },
+                            { id: 2, text: 'Reverse Engineering Intro (Ghidra Docs, IDA Pro Tutorials, Crackmes.one, Reversing.kr)', completed: false },
+                            { id: 3, text: 'Bug Bounty Programs (HackerOne, Bugcrowd, Intigriti, YesWeHack)', completed: false },
+                            { id: 4, text: 'CTF Challenges (PicoCTF, CTFtime, VulnHub, Root-Me)', completed: false },
+                            { id: 5, text: 'Projeto: Bug Bounty Report', completed: false },
+                        ]
+                    }
+                ]
+            }
+        };
+
+        // Achievements Data
+        const achievementsData = [
+            { id: 'first_task', title: 'First Step', description: 'Complete your first task', icon: 'fas fa-star', color: 'from-yellow-400 to-orange-500', unlocked: false },
+            { id: 'first_node', title: 'Node Master', description: 'Complete your first node', icon: 'fas fa-bullseye', color: 'from-green-400 to-emerald-600', unlocked: false },
+            { id: 'first_branch', title: 'Branch Champion', description: 'Complete your first branch', icon: 'fas fa-trophy', color: 'from-purple-400 to-pink-500', unlocked: false },
+            { id: 'half_way', title: 'Halfway There', description: 'Complete 50% of all tasks', icon: 'fas fa-flag', color: 'from-blue-400 to-cyan-600', unlocked: false },
+            { id: 'all_tasks', title: 'Roadmap Master', description: 'Complete all tasks', icon: 'fas fa-crown', color: 'from-red-500 to-pink-600', unlocked: false }
+        ];
+
+        // State Management
+        let selectedBranch = null;
+        let selectedNode = null;
+        let timeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+        let streak = 0;
+        let achievements = [];
+
+        // Load tasks from localStorage
+        function loadTasks() {
+            const saved = localStorage.getItem('cafeRoadmapTasks');
+            if (saved) {
+                return JSON.parse(saved);
+            }
+            return roadmapData;
+        }
+
+        // Save tasks to localStorage
+        function saveTasks(tasks) {
+            localStorage.setItem('cafeRoadmapTasks', JSON.stringify(tasks));
+        }
+
+        // Load achievements from localStorage
+        function loadAchievements() {
+            const saved = localStorage.getItem('cafeRoadmapAchievements');
+            if (saved) {
+                return JSON.parse(saved);
+            }
+            return achievementsData;
+        }
+
+        // Save achievements to localStorage
+        function saveAchievements(achievements) {
+            localStorage.setItem('cafeRoadmapAchievements', JSON.stringify(achievements));
+        }
+
+        // Load streak from localStorage
+        function loadStreak() {
+            const saved = localStorage.getItem('cafeRoadmapStreak');
+            if (saved) {
+                const streakData = JSON.parse(saved);
+                const lastDate = new Date(streakData.lastDate);
+                const today = new Date();
+                
+                // Check if streak should continue
+                if (lastDate.toDateString() === today.toDateString()) {
+                    return streakData.streak;
+                } else if ((today - lastDate) / (1000 * 60 * 60 * 24) === 1) {
+                    // Consecutive day
+                    return streakData.streak + 1;
+                } else {
+                    // Streak broken
+                    return 0;
+                }
+            }
+            return 0;
+        }
+
+        // Save streak to localStorage
+        function saveStreak(streak) {
+            const streakData = {
+                streak: streak,
+                lastDate: new Date().toISOString()
+            };
+            localStorage.setItem('cafeRoadmapStreak', JSON.stringify(streakData));
+        }
+
+        // Initialize tasks
+        let tasks = loadTasks();
+        achievements = loadAchievements();
+        streak = loadStreak();
+
+        // Calculate time left until end of 2026
+        function calculateTimeLeft() {
+            const endOf2026 = new Date('2026-12-31T23:59:59');
+            const now = new Date();
+            const difference = endOf2026 - now;
+
+            timeLeft = {
+                days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+                hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                minutes: Math.floor((difference / 1000 / 60) % 60),
+                seconds: Math.floor((difference / 1000) % 60)
+            };
+
+            updateCountdownTimer();
+        }
+
+        // Update countdown timer display
+        function updateCountdownTimer() {
+            const container = document.getElementById('countdown-timer');
+            if (!container) return;
+
+            container.innerHTML = '';
+            
+            ['days', 'hours', 'minutes', 'seconds'].forEach((unit) => {
+                const value = timeLeft[unit] || 0;
+                const div = document.createElement('div');
+                div.className = 'bg-slate-800/70 rounded-lg px-3 py-2 border border-slate-700 min-w-[60px] text-center';
+                div.innerHTML = `
+                    <div class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-purple-400">
+                        ${value}
+                    </div>
+                    <div class="text-[10px] text-slate-500 uppercase">${unit[0]}</div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // Toggle task completion
+        function toggleTask(branchId, nodeId, taskId) {
+            const branch = tasks[branchId];
+            if (!branch) return;
+
+            const node = branch.nodes.find(n => n.id === nodeId);
+            if (!node) return;
+
+            const task = node.tasks.find(t => t.id === taskId);
+            if (!task) return;
+
+            task.completed = !task.completed;
+            
+            // Update streak if completing a task
+            if (task.completed) {
+                updateStreak();
+            }
+            
+            // Update node status
+            const completedTasks = node.tasks.filter(t => t.completed).length;
+            if (completedTasks === node.tasks.length) {
+                node.status = 'completed';
+            } else if (completedTasks > 0) {
+                node.status = 'in-progress';
+            } else {
+                node.status = 'todo';
+            }
+
+            saveTasks(tasks);
+            renderBranches();
+            updateOverallProgress();
+            
+            // Check for achievements
+            checkAchievements();
+            
+            // Play completion sound if available
+            playCompletionSound();
+            
+            // Show confetti if branch is completed
+            if (isBranchCompleted(branchId)) {
+                showConfetti();
+                showAchievementToast('Branch Champion', 'You completed an entire branch!', 'fas fa-trophy');
+            }
+        }
+
+        // Check if a branch is completed
+        function isBranchCompleted(branchId) {
+            const branch = tasks[branchId];
+            if (!branch) return false;
+            
+            return branch.nodes.every(node => 
+                node.tasks.every(task => task.completed)
+            );
+        }
+
+        // Update streak counter
+        function updateStreak() {
+            streak = loadStreak();
+            saveStreak(streak);
+            updateStreakDisplay();
+        }
+
+        // Update streak display
+        function updateStreakDisplay() {
+            const streakElement = document.getElementById('streak-counter');
+            if (streakElement) {
+                streakElement.textContent = streak;
+            }
+        }
+
+        // Check for achievements
+        function checkAchievements() {
+            const stats = getTotalStats();
+            let newAchievements = [];
+            
+            // First task achievement
+            if (stats.completed >= 1 && !achievements.find(a => a.id === 'first_task')?.unlocked) {
+                const achievement = achievements.find(a => a.id === 'first_task');
+                if (achievement) {
+                    achievement.unlocked = true;
+                    newAchievements.push(achievement);
+                    showAchievementToast(achievement.title, achievement.description, achievement.icon);
+                }
+            }
+            
+            // First node achievement
+            const hasCompletedNode = Object.values(tasks).some(branch => 
+                branch.nodes.some(node => 
+                    node.tasks.every(task => task.completed)
+                )
+            );
+            
+            if (hasCompletedNode && !achievements.find(a => a.id === 'first_node')?.unlocked) {
+                const achievement = achievements.find(a => a.id === 'first_node');
+                if (achievement) {
+                    achievement.unlocked = true;
+                    newAchievements.push(achievement);
+                    showAchievementToast(achievement.title, achievement.description, achievement.icon);
+                }
+            }
+            
+            // First branch achievement
+            const hasCompletedBranch = Object.keys(tasks).some(branchId => 
+                isBranchCompleted(branchId)
+            );
+            
+            if (hasCompletedBranch && !achievements.find(a => a.id === 'first_branch')?.unlocked) {
+                const achievement = achievements.find(a => a.id === 'first_branch');
+                if (achievement) {
+                    achievement.unlocked = true;
+                    newAchievements.push(achievement);
+                    showAchievementToast(achievement.title, achievement.description, achievement.icon);
+                }
+            }
+            
+            // Halfway achievement
+            if (stats.progress >= 50 && !achievements.find(a => a.id === 'half_way')?.unlocked) {
+                const achievement = achievements.find(a => a.id === 'half_way');
+                if (achievement) {
+                    achievement.unlocked = true;
+                    newAchievements.push(achievement);
+                    showAchievementToast(achievement.title, achievement.description, achievement.icon);
+                }
+            }
+            
+            // All tasks achievement
+            if (stats.progress === 100 && !achievements.find(a => a.id === 'all_tasks')?.unlocked) {
+                const achievement = achievements.find(a => a.id === 'all_tasks');
+                if (achievement) {
+                    achievement.unlocked = true;
+                    newAchievements.push(achievement);
+                    showAchievementToast(achievement.title, achievement.description, achievement.icon);
+                    showConfetti(true); // Big confetti for completing everything
+                }
+            }
+            
+            // Save achievements if any were unlocked
+            if (newAchievements.length > 0) {
+                saveAchievements(achievements);
+                updateAchievementsDisplay();
+            }
+        }
+
+        // Show achievement toast
+        function showAchievementToast(title, description, icon) {
+            const toast = document.getElementById('achievement-toast');
+            const titleElement = document.getElementById('achievement-title');
+            const descElement = document.getElementById('achievement-desc');
+            const iconElement = document.getElementById('achievement-icon');
+            
+            if (toast && titleElement && descElement && iconElement) {
+                titleElement.textContent = title;
+                descElement.textContent = description;
+                iconElement.innerHTML = `<i class="${icon} text-white"></i>`;
+                
+                toast.classList.remove('translate-x-full');
+                
+                setTimeout(() => {
+                    toast.classList.add('translate-x-full');
+                }, 3000);
+            }
+        }
+
+        // Update achievements display
+        function updateAchievementsDisplay() {
+            const container = document.getElementById('achievements-header');
+            if (!container) return;
+            
+            container.innerHTML = '';
+            
+            achievements.filter(a => a.unlocked).forEach(achievement => {
+                const badge = document.createElement('div');
+                badge.className = `achievement-badge bg-gradient-to-br ${achievement.color}`;
+                badge.innerHTML = `<i class="${achievement.icon} text-white"></i>`;
+                badge.title = `${achievement.title}: ${achievement.description}`;
+                container.appendChild(badge);
+            });
+        }
+
+        // Show confetti
+        function showConfetti(intense = false) {
+            const count = intense ? 300 : 200;
+            const defaults = {
+                origin: { y: 0.7 },
+                zIndex: 10000
+            };
+
+            function fire(particleRatio, opts) {
+                confetti({
+                    ...defaults,
+                    ...opts,
+                    particleCount: Math.floor(count * particleRatio)
+                });
+            }
+
+            fire(0.25, {
+                spread: 26,
+                startVelocity: 55,
+            });
+
+            fire(0.2, {
+                spread: 60,
+            });
+
+            fire(0.35, {
+                spread: 100,
+                decay: 0.91,
+                scalar: 0.8
+            });
+
+            fire(0.1, {
+                spread: 120,
+                startVelocity: 25,
+                decay: 0.92,
+                scalar: 1.2
+            });
+
+            fire(0.1, {
+                spread: 120,
+                startVelocity: 45,
+            });
+        }
+
+        // Play completion sound
+        function playCompletionSound() {
+            // Create a simple beep sound using Web Audio API
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.value = 800;
+                oscillator.type = 'sine';
+                
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.5);
+            } catch (e) {
+                // Sound not supported in this environment
+                console.log('Audio not supported');
+            }
+        }
+
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            if (!container) return;
+            
+            // Clear existing particles
+            container.innerHTML = '';
+            
+            // Create 30 particles
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'floating-particles';
+                
+                // Random position
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                
+                particle.style.left = `${left}%`;
+                particle.style.top = `${top}%`;
+                
+                // Random delay
+                particle.style.animationDelay = `${Math.random() * 6}s`;
+                
+                // Random size
+                const size = 2 + Math.random() * 3;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                container.appendChild(particle);
+            }
+        }
+
+        // Get node progress percentage
+        function getNodeProgress(node) {
+            const completed = node.tasks.filter(t => t.completed).length;
+            return Math.round((completed / node.tasks.length) * 100);
+        }
+
+        // Get branch progress percentage
+        function getBranchProgress(branchId) {
+            const branch = tasks[branchId];
+            if (!branch) return 0;
+
+            let total = 0;
+            let completed = 0;
+            
+            branch.nodes.forEach(node => {
+                node.tasks.forEach(task => {
+                    total++;
+                    if (task.completed) completed++;
+                });
+            });
+            
+            return total > 0 ? Math.round((completed / total) * 100) : 0;
+        }
+
+        // Get total progress and stats
+        function getTotalStats() {
+            let total = 0;
+            let completed = 0;
+            
+            Object.values(tasks).forEach(branch => {
+                branch.nodes.forEach(node => {
+                    node.tasks.forEach(task => {
+                        total++;
+                        if (task.completed) completed++;
+                    });
+                });
+            });
+            
+            return { 
+                total, 
+                completed, 
+                remaining: total - completed,
+                progress: total > 0 ? Math.round((completed / total) * 100) : 0
+            };
+        }
+
+        // Update overall progress display
+        function updateOverallProgress() {
+            const stats = getTotalStats();
+            
+            document.getElementById('overall-stats').textContent = 
+                `${stats.completed} of ${stats.total} tasks completed`;
+            document.getElementById('overall-progress').textContent = `${stats.progress}%`;
+            document.getElementById('remaining-tasks').textContent = `${stats.remaining} remaining`;
+            document.getElementById('overall-progress-bar').style.width = `${stats.progress}%`;
+            
+            updateStatsFooter();
+        }
+
+        // Update stats footer
+        function updateStatsFooter() {
+            const stats = getTotalStats();
+            const container = document.getElementById('stats-container');
+            
+            container.innerHTML = `
+                <div>
+                    <i class="fas fa-award text-green-400 text-2xl mx-auto mb-2"></i>
+                    <div class="text-3xl font-bold bg-gradient-text-green text-gradient">
+                        ${stats.completed}
+                    </div>
+                    <div class="text-sm text-slate-400 mt-1">Completed</div>
+                </div>
+                <div>
+                    <i class="fas fa-fire text-orange-400 text-2xl mx-auto mb-2"></i>
+                    <div class="text-3xl font-bold bg-gradient-text-orange text-gradient">
+                        ${stats.remaining}
+                    </div>
+                    <div class="text-sm text-slate-400 mt-1">Remaining</div>
+                </div>
+                <div>
+                    <i class="fas fa-bullseye text-blue-400 text-2xl mx-auto mb-2"></i>
+                    <div class="text-3xl font-bold bg-gradient-text-blue-cyan text-gradient">
+                        ${stats.total}
+                    </div>
+                    <div class="text-sm text-slate-400 mt-1">Total Tasks</div>
+                </div>
+                <div>
+                    <i class="fas fa-trophy text-purple-400 text-2xl mx-auto mb-2"></i>
+                    <div class="text-3xl font-bold bg-gradient-text-purple-pink text-gradient">
+                        ${Object.keys(tasks).length}
+                    </div>
+                    <div class="text-sm text-slate-400 mt-1">Branches</div>
+                </div>
+            `;
+        }
+
+        // Render branches
+        function renderBranches() {
+            const container = document.getElementById('branches-container');
+            if (!container) return;
+
+            container.innerHTML = '';
+            
+            Object.entries(tasks).forEach(([branchId, branch]) => {
+                const progress = getBranchProgress(branchId);
+                const isSelected = selectedBranch === branchId;
+                const isCompleted = isBranchCompleted(branchId);
+                
+                const branchElement = document.createElement('div');
+                branchElement.className = `transform transition-all duration-500 ${isSelected ? 'md:col-span-2 scale-100' : 'hover-scale'}`;
+                
+                branchElement.innerHTML = `
+                    <div class="bg-slate-800/50 backdrop-blur-xl border-2 ${isCompleted ? 'border-green-500 glow-green' : branch.borderColor + ' ' + branch.glowColor} rounded-2xl p-6 cursor-pointer shadow-2xl hover:shadow-3xl transition-all duration-300"
+                         onclick="toggleBranch('${branchId}')">
+                        <!-- Branch Header -->
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-14 h-14 rounded-xl ${isCompleted ? 'bg-gradient-to-br from-green-400 to-emerald-600 glow-green' : 'bg-gradient-to-br ' + branch.color + ' ' + branch.glowColor} flex items-center justify-center shadow-lg">
+                                    <i class="${branch.icon} text-white text-xl"></i>
+                                    ${isCompleted ? '<i class="fas fa-check absolute text-white text-xs"></i>' : ''}
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold">${branch.title}</h3>
+                                    <p class="text-sm text-slate-400">${branch.nodes.length} modules • ${branch.nodes.reduce((acc, n) => acc + n.tasks.length, 0)} tasks</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                ${isCompleted ? '<i class="fas fa-crown text-yellow-400 text-xl"></i>' : ''}
+                                <div class="text-right">
+                                    <div class="text-2xl font-bold text-transparent bg-clip-text ${isCompleted ? 'bg-gradient-to-r from-green-400 to-emerald-600' : 'bg-gradient-to-r ' + branch.color}">
+                                        ${progress}%
+                                    </div>
+                                    <div class="text-xs text-slate-500">complete</div>
+                                </div>
+                                <i class="fas fa-chevron-${isSelected ? 'up' : 'down'}"></i>
+                            </div>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="mb-4">
+                            <div class="w-full bg-slate-900 rounded-full h-2 overflow-hidden">
+                                <div class="h-full ${isCompleted ? 'bg-gradient-to-r from-green-400 to-emerald-600 glow-green' : 'bg-gradient-to-r ' + branch.color} transition-all duration-1000 ease-out shadow-lg"
+                                     style="width: ${progress}%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Nodes - Expanded View -->
+                        ${isSelected ? `
+                            <div class="mt-6 space-y-4 animate-fade-in relative">
+                                <!-- Connection Lines -->
+                                <div class="absolute left-7 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500/30 to-purple-500/30 z-0"></div>
+                                
+                                ${branch.nodes.map((node, index) => {
+                                    const nodeProgress = getNodeProgress(node);
+                                    const nodeStatus = node.status;
+                                    const isNodeCompleted = nodeStatus === 'completed';
+                                    
+                                    return `
+                                        <div class="bg-slate-900/50 rounded-xl p-4 border transition-all duration-300 relative z-10 ${
+                                            isNodeCompleted ? 'border-green-500/50 glow-green' :
+                                            nodeStatus === 'in-progress' ? 'border-yellow-500/50' :
+                                            'border-slate-700'
+                                        }">
+                                            <!-- Node Connection Dot -->
+                                            <div class="absolute -left-9 top-1/2 transform -translate-y-1/2 w-4 h-4 rounded-full ${
+                                                isNodeCompleted ? 'bg-green-500 glow-green' :
+                                                nodeStatus === 'in-progress' ? 'bg-yellow-500 animate-pulse' :
+                                                'bg-slate-600'
+                                            }"></div>
+                                            
+                                            <div class="flex items-center justify-between mb-3">
+                                                <div class="flex items-center gap-3">
+                                                    ${
+                                                        isNodeCompleted ? '<i class="fas fa-check-circle text-green-400 text-xl animate-bounce-in"></i>' :
+                                                        nodeStatus === 'in-progress' ? '<div class="w-6 h-6 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin"></div>' :
+                                                        '<i class="far fa-circle text-slate-600 text-xl"></i>'
+                                                    }
+                                                    <div>
+                                                        <h4 class="font-bold">${node.title}</h4>
+                                                        <p class="text-xs text-slate-500">${node.phase}</p>
+                                                    </div>
+                                                </div>
+                                                <button onclick="event.stopPropagation(); toggleNode('${branchId}', '${node.id}')"
+                                                        class="px-3 py-1 bg-slate-800 hover:bg-slate-700 rounded-lg text-sm transition-colors">
+                                                    ${selectedNode?.id === node.id ? 'Hide' : 'View'} Tasks
+                                                </button>
+                                            </div>
+                                            
+                                            <div class="flex items-center gap-2 text-sm">
+                                                <div class="flex-1 bg-slate-800 rounded-full h-2">
+                                                    <div class="h-full rounded-full ${isNodeCompleted ? 'bg-gradient-to-r from-green-400 to-emerald-600' : 'bg-gradient-to-r ' + branch.color} transition-all duration-500"
+                                                         style="width: ${nodeProgress}%"></div>
+                                                </div>
+                                                <span class="text-slate-400 font-medium min-w-[50px] text-right">${nodeProgress}%</span>
+                                            </div>
+
+                                            <!-- Tasks List -->
+                                            ${selectedNode?.id === node.id ? `
+                                                <div class="mt-4 space-y-2 animate-slide-down">
+                                                    ${node.tasks.map(task => `
+                                                        <div onclick="event.stopPropagation(); toggleTask('${branchId}', '${node.id}', ${task.id})"
+                                                             class="flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-all duration-300 ${
+                                                                task.completed
+                                                                    ? 'bg-green-900/20 border border-green-500/30 glow-green'
+                                                                    : 'bg-slate-800/50 hover:bg-slate-800 border border-slate-700'
+                                                             }">
+                                                            <div class="w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${
+                                                                task.completed ? 'bg-green-500 border-green-500' : 'border-slate-600'
+                                                            }">
+                                                                ${task.completed ? '<i class="fas fa-check text-white text-xs animate-bounce-in"></i>' : ''}
+                                                            </div>
+                                                            <span class="flex-1 ${task.completed ? 'line-through text-slate-500' : ''}">
+                                                                ${task.text}
+                                                            </span>
+                                                            ${task.completed ? '<i class="fas fa-star text-yellow-400 animate-pulse"></i>' : ''}
+                                                        </div>
+                                                    `).join('')}
+                                                </div>
+                                            ` : ''}
+                                        </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+                
+                container.appendChild(branchElement);
+            });
+        }
+
+        // Toggle branch selection
+        function toggleBranch(branchId) {
+            if (selectedBranch === branchId) {
+                selectedBranch = null;
+                selectedNode = null;
+            } else {
+                selectedBranch = branchId;
+            }
+            renderBranches();
+        }
+
+        // Toggle node selection
+        function toggleNode(branchId, nodeId) {
+            if (selectedNode?.id === nodeId) {
+                selectedNode = null;
+            } else {
+                selectedNode = { id: nodeId, branchId };
+            }
+            renderBranches();
+        }
+
+        // Reset progress
+        function resetProgress() {
+            if (confirm('Are you sure you want to reset all progress? This cannot be undone.')) {
+                // Reset tasks
+                Object.values(tasks).forEach(branch => {
+                    branch.nodes.forEach(node => {
+                        node.status = 'todo';
+                        node.tasks.forEach(task => {
+                            task.completed = false;
+                        });
+                    });
+                });
+                
+                // Reset achievements
+                achievements.forEach(achievement => {
+                    achievement.unlocked = false;
+                });
+                
+                // Reset streak
+                streak = 0;
+                saveStreak(streak);
+                
+                // Save changes
+                saveTasks(tasks);
+                saveAchievements(achievements);
+                
+                // Re-render everything
+                renderBranches();
+                updateOverallProgress();
+                updateStreakDisplay();
+                updateAchievementsDisplay();
+            }
+        }
+
+        // Initialize the application
+        function init() {
+            calculateTimeLeft();
+            setInterval(calculateTimeLeft, 1000);
+            
+            createParticles();
+            renderBranches();
+            updateOverallProgress();
+            updateStreakDisplay();
+            updateAchievementsDisplay();
+            
+            // Add reset progress event listener
+            document.getElementById('reset-progress').addEventListener('click', resetProgress);
+        }
+
+        // Start the application when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
